@@ -8,6 +8,12 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      type="text/css"
+      href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css"
+      media="all"
+      rel="stylesheet"
+    />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -16,10 +22,145 @@
     </header>
     <main id="main">
       <div class="photograph-header">
+        <h2>Mimi Keel</h2>
+        <p>London, UK</p>
+        <span>Voir le beau dans le quotidien</span>
         <button class="contact_button" onclick="displayModal()">
           Contactez-moi
         </button>
+        <img
+          class="photographer1"
+          src="./assets/photographers/Photographers ID Photos/MimiKeel.jpg"
+          alt=""
+        />
       </div>
+      <section class="photograph-filter">
+        <label>Trier par</label>
+        <select name="filter">
+          <option value="Popularité">Popularité</option>
+          <option value="Date">Date</option>
+          <option value="Titre">Titre</option>
+        </select>
+      </section>
+      <section class="photograph-photos">
+        <article>
+          <a href="">
+            <img src="./assets/photographers/Mimi/Animals_Rainbow.jpg" alt="" />
+          </a>
+          <p>Arc-en-cie</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img src="./assets/photographers/Mimi/Travel_Lonesome.jpg" alt="" />
+          </a>
+          <p class="title2">Solitude</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img
+              src="./assets/photographers/Mimi/Event_SeasideWedding.jpg"
+              alt=""
+            />
+          </a>
+          <p>Mariage à la mer</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img
+              src="./assets/photographers/Mimi/Portrait_Background.jpg"
+              alt=""
+            />
+          </a>
+          <p>Background</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img
+              src="./assets/photographers/Mimi/Event_PintoWedding.jpg"
+              alt=""
+            />
+          </a>
+          <p>PintoWedding</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img
+              src="./assets/photographers/Mimi/Portrait_Wednesday.jpg"
+              alt=""
+            />
+          </a>
+          <p>Wednesday</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img
+              src="./assets/photographers/Mimi/Event_BenevidesWedding.jpg"
+              alt=""
+            />
+          </a>
+          <p>BeneWedding</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img src="./assets/photographers/Mimi/Portrait_Nora.jpg" alt="" />
+          </a>
+          <p>Nora</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+        <article>
+          <a href="">
+            <img
+              src="./assets/photographers/Mimi/Travel_HillsideColor.jpg"
+              alt=""
+            />
+          </a>
+          <p>HillsideColor</p>
+          <span>0</span>
+          <div class="photograph_heart">
+            <i class="far fa-heart heart--empty"> </i>
+            <i class="fas fa-heart heart--empty"></i>
+          </div>
+        </article>
+      </section>
     </main>
     <div id="contact_modal">
       <div class="modal">
@@ -31,6 +172,18 @@
           <div>
             <label>Prénom</label>
             <input />
+          </div>
+          <div>
+            <label>Nom</label>
+            <input />
+          </div>
+          <div>
+            <label>Email</label>
+            <input />
+          </div>
+          <div>
+            <label>Votre message</label>
+            <textarea name="texteMessage" id="" cols="30" rows="15"></textarea>
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
