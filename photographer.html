@@ -3,11 +3,12 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+
     <link
       type="text/css"
       href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css"
@@ -18,7 +19,9 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+      <a href="index.html"
+        ><img src="./assets/images/logo.png" class="logo"
+      /></a>
     </header>
     <main id="main">
       <div class="photograph-header">
@@ -36,18 +39,25 @@
       </div>
       <section class="photograph-filter">
         <label>Trier par</label>
-        <select name="filter">
-          <option value="Popularité">Popularité</option>
-          <option value="Date">Date</option>
-          <option value="Titre">Titre</option>
-        </select>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" aria-haspopup="true">
+            Select from Options
+          </button>
+          <ul class="dropdown-menu" role="listbox" aria-expanded="false">
+            <li role="option" tabindex="0">Popularité</li>
+            <li role="option" tabindex="0">Date</li>
+            <li role="option" tabindex="0">Titre</li>
+          </ul>
+        </div>
       </section>
       <section class="photograph-photos">
         <article>
-          <a href="">
-            <img src="./assets/photographers/Mimi/Animals_Rainbow.jpg" alt="" />
-          </a>
-          <p>Arc-en-cie</p>
+          <img
+            src="./assets/photographers/Mimi/Animals_Rainbow.jpg"
+            alt="Arc-en-cie"
+            onclick="displaylightbox()"
+          />
+          <p id="title1">Arc-en-cie</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -55,10 +65,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img src="./assets/photographers/Mimi/Travel_Lonesome.jpg" alt="" />
-          </a>
-          <p class="title2">Solitude</p>
+          <img
+            src="./assets/photographers/Mimi/Travel_Lonesome.jpg"
+            alt="Solitude"
+            onclick="displaylightbox()"
+          />
+          <p id="title2">Solitude</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -66,13 +78,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img
-              src="./assets/photographers/Mimi/Event_SeasideWedding.jpg"
-              alt=""
-            />
-          </a>
-          <p>Mariage à la mer</p>
+          <img
+            src="./assets/photographers/Mimi/Event_SeasideWedding.jpg"
+            alt="Mariage à la mer"
+            onclick="displaylightbox()"
+          />
+          <p id="title3">Mariage à la mer</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -80,13 +91,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img
-              src="./assets/photographers/Mimi/Portrait_Background.jpg"
-              alt=""
-            />
-          </a>
-          <p>Background</p>
+          <img
+            src="./assets/photographers/Mimi/Portrait_Background.jpg"
+            alt="Background"
+            onclick="displaylightbox()"
+          />
+          <p id="title4">Background</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -94,13 +104,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img
-              src="./assets/photographers/Mimi/Event_PintoWedding.jpg"
-              alt=""
-            />
-          </a>
-          <p>PintoWedding</p>
+          <img
+            src="./assets/photographers/Mimi/Event_PintoWedding.jpg"
+            alt="PintoWedding"
+            onclick="displaylightbox()"
+          />
+          <p id="title5">PintoWedding</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -108,13 +117,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img
-              src="./assets/photographers/Mimi/Portrait_Wednesday.jpg"
-              alt=""
-            />
-          </a>
-          <p>Wednesday</p>
+          <img
+            src="./assets/photographers/Mimi/Portrait_Wednesday.jpg"
+            alt="Wednesday"
+            onclick="displaylightbox()"
+          />
+          <p id="title6">Wednesday</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -122,13 +130,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img
-              src="./assets/photographers/Mimi/Event_BenevidesWedding.jpg"
-              alt=""
-            />
-          </a>
-          <p>BeneWedding</p>
+          <img
+            src="./assets/photographers/Mimi/Event_BenevidesWedding.jpg"
+            alt="BeneWedding"
+            onclick="displaylightbox()"
+          />
+          <p id="title7">BeneWedding</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -136,10 +143,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img src="./assets/photographers/Mimi/Portrait_Nora.jpg" alt="" />
-          </a>
-          <p>Nora</p>
+          <img
+            src="./assets/photographers/Mimi/Portrait_Nora.jpg"
+            alt="Nora"
+            onclick="displaylightbox()"
+          />
+          <p id="title8">Nora</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -147,13 +156,12 @@
           </div>
         </article>
         <article>
-          <a href="">
-            <img
-              src="./assets/photographers/Mimi/Travel_HillsideColor.jpg"
-              alt=""
-            />
-          </a>
-          <p>HillsideColor</p>
+          <img
+            src="./assets/photographers/Mimi/Travel_HillsideColor.jpg"
+            alt="HillsideColor"
+            onclick="displaylightbox()"
+          />
+          <p id="title9">HillsideColor</p>
           <span>0</span>
           <div class="photograph_heart">
             <i class="far fa-heart heart--empty"> </i>
@@ -161,12 +169,69 @@
           </div>
         </article>
       </section>
+      <div id="lightbox">
+        <button class="lightbox__close" onclick="closelightbox()">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="xmark"
+            class="svg-inline--fa fa-xmark"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
+            ></path>
+          </svg>
+        </button>
+        <button class="lightbox__next">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-left"
+            class="svg-inline--fa fa-chevron-left"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z"
+            ></path>
+          </svg>
+        </button>
+        <button class="lightbox__prev">
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-prefix="fas"
+            data-icon="chevron-left"
+            class="svg-inline--fa fa-chevron-left"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"
+          >
+            <path
+              fill="currentColor"
+              d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z"
+            ></path>
+          </svg>
+        </button>
+        <div class="lightbox__container">
+          <img src="https://picsum.photos/900/1800" alt="" />
+          <p id="image_caption">texte fictif</p>
+        </div>
+      </div>
     </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="./assets/icons/close.svg" onclick="closeModal()" />
         </header>
         <form>
           <div>
@@ -189,6 +254,7 @@
         </form>
       </div>
     </div>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/pages/photographer.js"></script>
   </body>
 </html>
