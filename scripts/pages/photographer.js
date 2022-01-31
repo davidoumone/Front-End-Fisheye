@@ -84,17 +84,11 @@ function DropDown(dropDown) {
 
 const dropDown = new DropDown(document.querySelector(".dropdown"));
 
-dropDown.element.addEventListener("change", (e) => {
-  console.log("changed", dropDown.value);
-});
+dropDown.element.addEventListener("change", (e) => {});
 
-dropDown.element.addEventListener("opened", (e) => {
-  console.log("opened", dropDown.value);
-});
+dropDown.element.addEventListener("opened", (e) => {});
 
-dropDown.element.addEventListener("closed", (e) => {
-  console.log("closed", dropDown.value);
-});
+dropDown.element.addEventListener("closed", (e) => {});
 
 dropDown.toggle();
 /*********************LIGHTBOX**********************************************************************/

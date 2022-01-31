@@ -25,6 +25,11 @@ h1 {
   margin-left: 100px;
 }
 
+#main {
+  margin: 0;
+  padding: 0;
+}
+
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -40,55 +45,64 @@ h1 {
   flex-direction: column;
 }
 
-.photographer_section article h2 {
-  color: #d3573c;
-  font-size: 36px;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-
-.photographer_section article p {
-  color: #901c1c;
-  font-size: 15px;
-  margin-top: -30px;
-}
-
-.photographer_section article span {
-  font-size: 12px;
-  margin-top: -21px;
-  line-height: 40px;
-}
-
-.photographer_section .prix {
-  color: grey;
-}
-
 .photographer_section article a {
   text-decoration: none;
   color: inherit;
 }
 
 .photographer_section article img {
-  height: 200px;
-  width: 200px;
+  height: 230px;
+  width: 230px;
   border-radius: 100%;
 }
 
-.photographer_section .photographer2 {
-  margin-left: 40px;
+.photographer_section article h3 {
+  color: #d3573c;
+  font-size: 20px;
+  margin-left: 2.8rem;
 }
 
-.photographer_section .photographer3 {
-  margin-left: 20px;
+.photographer_section article p {
+  color: #901c1c;
+  font-size: 15px;
+  margin-top: -15px;
 }
 
-.photographer_section .photographer4 {
-  margin-left: 40px;
-}
-.photographer_section .photographer5 {
-  margin-left: 20px;
+.photographer_section article span {
+  font-size: 12px;
+  margin-top: -15px;
+  line-height: 37px;
 }
 
-.photographer_section .photographer6 {
-  margin-left: 25px;
+.photographer_section .prix {
+  color: grey;
+}
+
+/* responsive portable */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+  }
+
+  h1 {
+    margin: 50px 0px 0px 10px;
+  }
+
+  .logo {
+    margin: 50px 0px 0px 10px;
+  }
+
+  .photographer_section {
+    display: block;
+    margin-top: 167px;
+  }
+
+  .photographer_section article{
+    margin-bottom: 13px;
+  }
 }

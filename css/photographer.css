@@ -13,8 +13,9 @@ body {
 
 .photograph-header h2 {
   color: #d3573c;
-  font-size: 76px;
+  font-size: 40px;
   position: relative;
+  top: 30px;
   left: 21px;
 }
 
@@ -22,7 +23,7 @@ body {
   color: #901c1c;
   font-size: 35px;
   position: relative;
-  bottom: 50px;
+  top: 0px;
   left: 21px;
 }
 
@@ -30,14 +31,14 @@ body {
   font-size: 25px;
   margin-top: -21px;
   position: relative;
-  bottom: 220px;
+  bottom: 165px;
   left: 21px;
 }
 
 .photograph-header button {
   position: relative;
   left: 260px;
-  bottom: 290px;
+  bottom: 228px;
 }
 
 .photograph-header img {
@@ -46,7 +47,7 @@ body {
   border-radius: 100%;
   position: relative;
   left: 540px;
-  bottom: 190px;
+  bottom: 118px;
 }
 
 /********************** FILTRES DE RECHERCHE****************************************/
@@ -140,6 +141,36 @@ body {
   background-color: #d3573c;
 }
 
+.languette {
+  display: flex;
+  width: 450px;
+  height: 70px;
+  border-radius: 5px;
+  background-color: #db8876;
+  font-weight: bold;
+  font-size: 1.3em;
+  position: fixed;
+  top: 92%;
+  right: 3%;
+  z-index: 9;
+}
+
+.languette_vue {
+  margin-left: 25px;
+}
+
+.languette i {
+  position: relative;
+  top: 23px;
+  left: 10px;
+  font-size: 1em;
+  background-color: black;
+  opacity: 1;
+}
+.languette_prix {
+  margin-left: 40%;
+}
+
 /********************** SECTION PHOTOS****************************************/
 .photograph-photos {
   display: grid;
@@ -163,46 +194,17 @@ body {
 
 .photograph-photos article p {
   color: #901c1c;
-  font-size: 25px;
+  font-size: 22px;
   position: relative;
-  bottom: 20px;
+  bottom: 15px;
+  right: 120px;
 }
 
-#title1 {
-  right: 135px;
-}
-#title2 {
-  right: 149px;
-}
-
-#title3 {
-  right: 98px;
-}
-#title4 {
-  right: 127px;
-}
-
-#title5 {
-  right: 115px;
-}
-#title6 {
-  right: 122px;
-}
-#title7 {
-  right: 113px;
-}
-#title8 {
-  right: 167px;
-}
-
-#title9 {
-  right: 118px;
-}
 .photograph-photos article span {
   color: #901c1c;
   font-size: 2em;
   position: relative;
-  bottom: 85px;
+  bottom: 73px;
   left: 140px;
 }
 
@@ -210,7 +212,7 @@ body {
   width: 0;
   height: 0;
   position: relative;
-  bottom: 120px;
+  bottom: 108px;
   left: 165px;
 }
 
@@ -287,15 +289,16 @@ body {
 }
 
 .lightbox__container img {
-  width: 500px;
-  height: 400px;
+  width: 70em;
+  height: 580px;
+  margin-left: 6em;
 }
 .lightbox__container p {
   color: #901c1c;
   font-size: 25px;
   position: relative;
-  top: 246px;
-  right: 488px;
+  top: 312px;
+  right: 1100px;
 }
 
 /********************** MODAL DE MESSAGERIE****************************************/
@@ -334,6 +337,10 @@ body {
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  position: relative;
+  top: 15px;
+  margin: auto;
+  height: max-content;
 }
 
 .modal header {
@@ -384,4 +391,9 @@ form textarea {
   height: 111px;
   border: none;
   border-radius: 5px;
+}
+
+#contact_modal > div > form > button {
+  width: 100px;
+  height: 42px;
 }
