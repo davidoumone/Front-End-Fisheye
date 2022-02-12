@@ -190,6 +190,8 @@ body {
   width: 400px;
   border-radius: 10px;
   cursor: pointer;
+  object-fit: cover;
+  object-position: 40% 13%;
 }
 
 .photograph-photos article p {
@@ -396,4 +398,166 @@ form textarea {
 #contact_modal > div > form > button {
   width: 100px;
   height: 42px;
+}
+
+/* responsive portable */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  /********************** CARTE IDENTITE DU PHOTOTGRAPHE****************************************/
+  .photograph-header {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    height: 590px;
+    margin: 25px 0px 0px 0px;
+    width: 99%;
+  }
+
+  .photograph-header h2 {
+    position: relative;
+    top: 186px;
+    left: 0px;
+  }
+
+  .photograph-header p {
+    position: relative;
+    top: 125px;
+    left: 0px;
+  }
+
+  .photograph-header span {
+    position: relative;
+    left: 4px;
+    bottom: -125px;
+    font-size: 17px;
+  }
+
+  .photograph-header button {
+    position: relative;
+    left: 0px;
+    bottom: -174px;
+  }
+
+  .photograph-header img {
+    position: relative;
+    left: 0px;
+    bottom: 344px;
+  }
+
+  /********************** FILTRES DE RECHERCHE****************************************/
+  .photograph-filter {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 80px;
+    left: 30px;
+    width: 80%;
+  }
+  /********************** SECTION PHOTOS****************************************/
+  .photograph-photos {
+    display: block;
+    margin-top: 100px;
+  }
+
+  .photograph-photos article img {
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    object-fit: cover;
+    object-position: 40% 13%;
+  }
+  .photograph-photos article p {
+    color: #901c1c;
+    font-size: 20px;
+    position: relative;
+    bottom: 15px;
+    right: 24%;
+  }
+
+  .photograph-photos article span {
+    color: #901c1c;
+    font-size: 1.5em;
+    position: relative;
+    bottom: 66px;
+    left: 35%;
+  }
+  .photograph-photos .photograph_heart {
+    width: 0;
+    height: 0;
+    position: relative;
+    bottom: 93px;
+    left: 41%;
+  }
+  .photograph-photos .photograph_heart i {
+    position: absolute;
+    font-size: 1.4em;
+  }
+  .languette {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    border-radius: 5px;
+    background-color: #db8876;
+    font-weight: bold;
+    font-size: 1em;
+    position: fixed;
+    top: 92%;
+    right: 1%;
+    z-index: 9;
+  }
+  .languette i {
+    position: relative;
+    top: 18px;
+    left: 10px;
+    font-size: 1em;
+    background-color: black;
+    opacity: 1;
+  }
+  /********************** MODAL LIGHTBOX****************************************/
+  .lightbox__close {
+    width: 27px;
+  }
+  .lightbox__next,
+  .lightbox__prev {
+    width: 25px;
+  }
+  .lightbox__container img {
+    width: 81%;
+    margin-left: 33%;
+    height: 514px;
+  }
+  .lightbox__container p {
+    color: #901c1c;
+    font-size: 25px;
+    position: relative;
+    top: 11em;
+    right: 9em;
+    white-space: nowrap;
+  }
+  /********************** MODAL DE MESSAGERIE****************************************/
+  .modal header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: -28%;
+  }
+  .modal header h2 {
+    font-size: 17px;
+    font-weight: normal;
+    padding-right: 43%;
+    text-align: unset;
+    white-space: nowrap;
+    margin-left: -22px;
+  }
+  .modal header img {
+    cursor: pointer;
+    width: 16px;
+  }
+  form label {
+    color: #312e2e;
+    font-size: 15px;
+  }
 }
