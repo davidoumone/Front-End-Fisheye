@@ -54,12 +54,15 @@ h1 {
   height: 230px;
   width: 230px;
   border-radius: 100%;
+  object-fit: cover;
+  object-position: 41% 50%;
 }
 
 .photographer_section article h3 {
   color: #d3573c;
   font-size: 20px;
-  margin-left: 2.8rem;
+  text-align: center;
+  margin-top: 5px;
 }
 
 .photographer_section article p {
@@ -102,7 +105,7 @@ h1 {
     margin-top: 167px;
   }
 
-  .photographer_section article{
+  .photographer_section article {
     margin-bottom: 13px;
   }
 }
