@@ -196,31 +196,30 @@ body {
 
 .photograph-photos article p {
   color: #901c1c;
-  font-size: 22px;
+  font-size: 18px;
   position: relative;
-  bottom: 15px;
-  right: 120px;
+  right: 80px;
 }
 
 .photograph-photos article span {
   color: #901c1c;
-  font-size: 2em;
+  font-size: 18px;
   position: relative;
-  bottom: 73px;
-  left: 140px;
+  bottom: 41px;
+  left: 145px;
 }
 
 .photograph-photos .photograph_heart {
   width: 0;
   height: 0;
   position: relative;
-  bottom: 108px;
+  bottom: 65px;
   left: 165px;
 }
 
 .photograph-photos .photograph_heart i {
   position: absolute;
-  font-size: 1.7em;
+  font-size: 1.6em;
 }
 
 .far {
@@ -370,7 +369,7 @@ form {
 
 form label {
   color: #312e2e;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 form div {
@@ -398,6 +397,20 @@ form textarea {
 #contact_modal > div > form > button {
   width: 100px;
   height: 42px;
+}
+
+#contact_modal .error-error {
+  color: darkred;
+  font-size: 17px;
+}
+
+#contact_modal .error-validation {
+  color: darkgreen;
+  font-size: 17px;
+}
+
+#contact_modal .erreur-disappared {
+  display: none;
 }
 
 /* responsive portable */
@@ -461,8 +474,12 @@ form textarea {
     margin-top: 100px;
   }
 
+  .photograph-photos article:last-child {
+    padding-bottom: 50px;
+  }
+
   .photograph-photos article img {
-    height: 400px;
+    height: 310px;
     width: 100%;
     border-radius: 10px;
     cursor: pointer;
@@ -470,30 +487,27 @@ form textarea {
     object-position: 40% 13%;
   }
   .photograph-photos article p {
-    color: #901c1c;
-    font-size: 20px;
+    font-size: 13px;
     position: relative;
-    bottom: 15px;
-    right: 24%;
   }
 
   .photograph-photos article span {
     color: #901c1c;
-    font-size: 1.5em;
+    font-size: 14px;
     position: relative;
-    bottom: 66px;
+    bottom: 30px;
     left: 35%;
   }
   .photograph-photos .photograph_heart {
     width: 0;
     height: 0;
     position: relative;
-    bottom: 93px;
+    bottom: 48px;
     left: 41%;
   }
   .photograph-photos .photograph_heart i {
     position: absolute;
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
   .languette {
     display: flex;
@@ -556,8 +570,20 @@ form textarea {
     cursor: pointer;
     width: 16px;
   }
+
+  form {
+    margin-top: -14px;
+  }
   form label {
     color: #312e2e;
     font-size: 15px;
+  }
+
+  #contact_modal .error-error {
+    font-size: 13px;
+  }
+
+  #contact_modal .error-validation {
+    font-size: 13px;
   }
 }
