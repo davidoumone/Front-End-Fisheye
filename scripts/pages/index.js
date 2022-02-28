@@ -1,5 +1,5 @@
 async function getPhotographers() {
-  // Penser à remplacer par les données récupérées dans le json
+  //  les données récupérées dans le json
   try {
     let response = await fetch("../../data/photographers.json");
     if (response.ok) {
@@ -37,12 +37,6 @@ async function displayData(photographers) {
   });
   const photographersSection = document.querySelector(".photographer_section");
   photographersSection.innerHTML = html;
-
-  // photographers.forEach((photographer) => {
-  //   const photographerModel = photographerFactory(photographer);
-  //   const userCardDOM = photographerModel.getUserCardDOM();
-  //   photographersSection.appendChild(userCardDOM);
-  // });
 }
 
 async function init() {

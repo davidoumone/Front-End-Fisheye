@@ -239,24 +239,41 @@
           <h2>Contactez-moi</h2>
           <img src="./assets/icons/close.svg" onclick="closeModal()" />
         </header>
-        <form>
+        <form
+          id="Messenger"
+          name="Messenger"
+          action="photographer.html"
+          method="get"
+          onsubmit="return validate();"
+        >
           <div>
-            <label>Prénom</label>
-            <input />
+            <label for="first">Prénom</label>
+            <input class="text-control" type="text" id="first" name="first" required="required"/>
+            <span class="error"></span>
           </div>
           <div>
-            <label>Nom</label>
-            <input />
+            <label for="last">Nom</label>
+            <input class="text-control" type="text" id="last" name="last" required="required"/>
+            <span class="error"></span>
           </div>
           <div>
-            <label>Email</label>
-            <input />
+            <label for="email">Email</label>
+            <input class="text-control" type="text" id="email" name="email" required="required"/>
+            <span class="error"></span>
           </div>
           <div>
-            <label>Votre message</label>
-            <textarea name="texteMessage" id="" cols="30" rows="15"></textarea>
+            <label for="texteMessage">Votre message</label>
+            <textarea
+              class="text-control"
+              type="text"
+              name="texteMessage"
+              id="texteMessage"
+              cols="30"
+              rows="15"
+              required="required"
+            ></textarea>
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" type="submit">Envoyer</button>
         </form>
       </div>
     </div>
