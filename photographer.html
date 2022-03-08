@@ -40,141 +40,20 @@
       </div>
       <section class="photograph-filter">
         <label>Trier par</label>
-        <div class="dropdown">
-          <button class="dropdown-toggle" type="button" aria-haspopup="true">
-            Select from Options
-          </button>
-          <ul class="dropdown-menu" role="listbox" aria-expanded="false">
-            <li role="option" tabindex="0">Popularité</li>
-            <li role="option" tabindex="0">Date</li>
-            <li role="option" tabindex="0">Titre</li>
-          </ul>
+        <div class="select" tabindex="1">
+          <input class="selectopt" name="test" type="radio" id="opt1" checked />
+          <label for="opt1" class="option">Par défaut</label>
+          <input class="selectopt" name="test" type="radio" id="opt2" />
+          <label for="opt2" class="option">Popularité</label>
+          <input class="selectopt" name="test" type="radio" id="opt3" />
+          <label for="opt3" class="option">Date</label>
+          <input class="selectopt" name="test" type="radio" id="opt4" />
+          <label for="opt4" class="option">Titre</label>
         </div>
-        <div class="languette">
-          <p class="languette_vue">297 081</p>
-          <i class="fas fa-heart heart--empty"> </i>
-          <p class="languette_prix">350€ / jour</p>
-        </div>
+        <div class="languette"></div>
       </section>
-      <section class="photograph-photos">
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Animals_Rainbow.jpg"
-            alt="Arc-en-cie"
-            onclick="displaylightbox()"
-          />
-          <p id="title1">Arc-en-cie</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Travel_Lonesome.jpg"
-            alt="Solitude"
-            onclick="displaylightbox()"
-          />
-          <p id="title2">Solitude</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Event_SeasideWedding.jpg"
-            alt="Mariage à la mer"
-            onclick="displaylightbox()"
-          />
-          <p id="title3">Mariage à la mer</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Portrait_Background.jpg"
-            alt="Background"
-            onclick="displaylightbox()"
-          />
-          <p id="title4">Background</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Event_PintoWedding.jpg"
-            alt="PintoWedding"
-            onclick="displaylightbox()"
-          />
-          <p id="title5">PintoWedding</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Portrait_Wednesday.jpg"
-            alt="Wednesday"
-            onclick="displaylightbox()"
-          />
-          <p id="title6">Wednesday</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Event_BenevidesWedding.jpg"
-            alt="BeneWedding"
-            onclick="displaylightbox()"
-          />
-          <p id="title7">BeneWedding</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Portrait_Nora.jpg"
-            alt="Nora"
-            onclick="displaylightbox()"
-          />
-          <p id="title8">Nora</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-        <article>
-          <img
-            src="./assets/photographers/Mimi/Travel_HillsideColor.jpg"
-            alt="HillsideColor"
-            onclick="displaylightbox()"
-          />
-          <p id="title9">HillsideColor</p>
-          <span>0</span>
-          <div class="photograph_heart">
-            <i class="far fa-heart heart--empty"> </i>
-            <i class="fas fa-heart heart--empty"></i>
-          </div>
-        </article>
-      </section>
+      <section class="photograph-photos"></section>
+
       <div id="lightbox">
         <button class="lightbox__close" onclick="closelightbox()">
           <svg
@@ -248,17 +127,35 @@
         >
           <div>
             <label for="first">Prénom</label>
-            <input class="text-control" type="text" id="first" name="first" required="required"/>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+              required="required"
+            />
             <span class="error"></span>
           </div>
           <div>
             <label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" required="required"/>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+              required="required"
+            />
             <span class="error"></span>
           </div>
           <div>
             <label for="email">Email</label>
-            <input class="text-control" type="text" id="email" name="email" required="required"/>
+            <input
+              class="text-control"
+              type="text"
+              id="email"
+              name="email"
+              required="required"
+            />
             <span class="error"></span>
           </div>
           <div>
