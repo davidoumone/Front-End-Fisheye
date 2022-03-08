@@ -63,82 +63,79 @@ body {
   padding-right: 10px;
 }
 
-.dropdown {
+.select {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  cursor: pointer;
-  top: -8px;
+  width: 225px;
+  height: 40px;
+  font-family: Arial;
 }
 
-.dropdown .dropdown-toggle {
-  appearance: none;
-  background: #901c1c;
-  color: #fff;
-  border: 0;
-  padding: 12px 35px 12px 12px;
-  border-radius: 3px;
-  text-align: left;
-  position: relative;
-  max-width: 300px;
-  cursor: pointer;
-  outline: none;
-}
-
-.dropdown .dropdown-toggle::after {
-  content: "";
-  border-width: 6px;
-  border-radius: 3px;
-  border-style: solid;
-  border-color: transparent;
-  border-top-color: inherit;
-  position: absolute;
-  right: 12px;
-  top: calc(50% + 3px);
-  transform: translateY(-50%);
-}
-
-.dropdown .dropdown-toggle.active::after {
-  border-color: transparent;
-  border-bottom-color: inherit;
-  top: calc(50% - 3px);
-}
-
-.dropdown .dropdown-menu {
-  position: absolute;
-  left: 50%;
-  top: 80%;
-  transform: translateX(-50%);
-  background-color: #901c1c;
-  box-shadow: 0 1px 4px rgba(150, 150, 150, 0.65);
-  list-style: none;
-  padding: 0px 0;
-  margin: 0;
-  max-width: 320px;
-  width: calc(100% + 25px);
-  border-radius: 3px;
-  z-index: 10;
-  visibility: hidden;
-  overflow: auto;
-  max-height: 200px;
-}
-
-.dropdown .dropdown-menu[aria-expanded="true"] {
-  visibility: visible;
-}
-
-.dropdown .dropdown-menu > li {
-  height: 25px;
-  display: block;
+.option {
+  padding: 0 30px 0 10px;
+  min-height: 40px;
+  display: flex;
   align-items: center;
-  padding: 8px 10px;
-  background-color: #901c1c;
-  border-top: 1px solid white;
-  color: white;
+  background: #901c1c;
+  border-top: #222 solid 1px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  order: 2;
+  z-index: 1;
+  transition: background 0.4s ease-in-out;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffffff;
 }
 
-.dropdown .dropdown-menu > li:hover,
-.dropdown .dropdown-menu > li:focus {
-  outline: none;
-  background-color: #d3573c;
+.option:hover {
+  background: #d3573c;
+}
+
+.select:focus .option {
+  position: relative;
+  pointer-events: all;
+}
+
+.select > input {
+  opacity: 0;
+  position: absolute;
+  left: -99999px;
+}
+
+.select > input:checked + label {
+  order: 1;
+  z-index: 2;
+  background: #901c1c;
+  border-top: none;
+  position: relative;
+}
+
+.select > input:checked + label:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 2.5px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.select > input:checked + label:before {
+  position: absolute;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  content: "";
+  background: #901c1c;
 }
 
 .languette {
@@ -192,6 +189,12 @@ body {
   cursor: pointer;
   object-fit: cover;
   object-position: 40% 13%;
+}
+
+video {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
 }
 
 .photograph-photos article p {
@@ -485,6 +488,12 @@ form textarea {
     cursor: pointer;
     object-fit: cover;
     object-position: 40% 13%;
+  }
+
+  video {
+    height: 310px;
+    width: 100%;
+    object-fit: cover;
   }
   .photograph-photos article p {
     font-size: 13px;
