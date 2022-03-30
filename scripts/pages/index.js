@@ -17,6 +17,11 @@ async function getPhotographers() {
   }
 }
 
+/**
+ * Cette fonction prend une liste de photographes et renvoie une chaîne HTML qui affiche les données
+ * pour chaque photographe
+ * @param photographers - un tableau d'objets contenant les données de chaque photographe.
+ */
 async function displayData(photographers) {
   let html = "";
   photographers.forEach((photographer) => {

@@ -29,9 +29,13 @@ const form = document.querySelector("#Messenger");
 
 // CHAMP PRENOM
 
-// addEventListener() méthode pour enregistrer un écouteur d'événement avec change comme type d'évènements.
+/**
+ * Il s'agit d'un écouteur d'événements JavaScript.
+ * C'est une fonction appelée lorsqu'un événement se produit.
+ * Dans ce cas, l'événement est le changement de la valeur du champ prénom.
+ * Meme méthode utilisé pour le champ nom et email et textarea
+ */
 form.first.addEventListener("change", function () {
-  // appel de la fonction prise en charge this = paramètre de la fonction validfirst (firstname)
   validfirst(this);
 });
 
@@ -116,7 +120,7 @@ const validMessage = function (Message) {
   if (Message.value) {
     console.log(Message.value);
   }
-}
+};
 
 // form submit
 form.addEventListener("submit", function (event) {
