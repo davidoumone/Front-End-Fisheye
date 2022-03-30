@@ -293,16 +293,18 @@ video {
 }
 
 .lightbox__container img {
-  width: 70em;
-  height: 580px;
-  margin-left: 6em;
+  height: 400px;
+  width: 500px;
+  margin-left: 0;
 }
+
+
 .lightbox__container p {
   color: #901c1c;
   font-size: 25px;
   position: relative;
-  top: 312px;
-  right: 1100px;
+  top: 240px;
+  right: 450px;
 }
 
 /********************** MODAL DE MESSAGERIE****************************************/
@@ -549,14 +551,16 @@ form textarea {
   }
   .lightbox__container img {
     width: 81%;
-    margin-left: 33%;
-    height: 514px;
+    margin-left: 152px;
+    height: 336px;
   }
+
+  
   .lightbox__container p {
     color: #901c1c;
     font-size: 25px;
     position: relative;
-    top: 11em;
+    top: 8em;
     right: 9em;
     white-space: nowrap;
   }

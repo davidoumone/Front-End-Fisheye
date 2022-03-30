@@ -55,7 +55,7 @@
       <section class="photograph-photos"></section>
 
       <div id="lightbox">
-        <button class="lightbox__close" onclick="closelightbox()">
+        <button class="lightbox__close">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -106,9 +106,8 @@
             ></path>
           </svg>
         </button>
-        <div class="lightbox__container">
-          <img src="https://picsum.photos/900/1800" alt="" />
-          <p id="image_caption">texte fictif</p>
+        <div class="lightbox__container" id="lightbox_contain">
+          
         </div>
       </div>
     </main>
@@ -123,7 +122,7 @@
           name="Messenger"
           action="photographer.html"
           method="get"
-          onsubmit="return validate();"
+          onsubmit="validate();"
         >
           <div>
             <label for="first">Prénom</label>

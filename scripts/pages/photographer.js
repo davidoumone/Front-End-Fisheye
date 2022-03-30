@@ -1,8 +1,10 @@
-//Mettre le code JavaScript lié à la page photographer.html
+/* Création de variables globales qui seront utilisées dans le code ci-dessous. */
 let namephotographe;
 let prixlanguette;
 let totalLikes;
 var medias = [];
+let filterdefault;
+let index;
 /**
  * photographer-media
  */
@@ -57,6 +59,10 @@ async function getmedias() {
   }
 }
 
+/**
+ * Cette fonction affiche les informations d'un photographe dans le DOM
+ * @param photographe - L'objet contenant les informations du photographe.
+ */
 async function displayphotographcard(photographe) {
   const photographheader = document.querySelector(".photograph-header");
   photographheader.innerHTML = ` <h2>${photographe.name}</h2>
@@ -88,6 +94,10 @@ async function initmedia() {
     (resultmedia) => resultmedia.photographerId == idproduct
   );
 
+  filterdefault = medias.sort(function (a, b) {
+    return b.id - a.id;
+  });
+
   /**
    * nombre total de likes pour la languette
    */
@@ -101,8 +111,9 @@ async function initmedia() {
 }
 
 initmedia();
+
 /**
- * afficher les media
+ * Cette fonction affiche les médias du photographe dans la section medias
  */
 async function displaymedia() {
   let sectionmedia = "";
@@ -110,10 +121,9 @@ async function displaymedia() {
     let mediacontain;
     if (mediasphotographe.image) {
       mediacontain = ` <article>
-      <img
+      <img class="gallerie-image"
         src="./assets/photographers/${namephotographe}/${mediasphotographe.image}"
         alt="${mediasphotographe.title}"
-        onclick="displaylightbox()"
       />
       <p id="title">${mediasphotographe.title}</p>
       <span>${mediasphotographe.likes}</span>
@@ -124,11 +134,11 @@ async function displaymedia() {
     </article>`;
     } else {
       mediacontain = ` <article>
-      <video
-      controls="controls"
+      <video class="gallerie-image"
+      autoplay loop
       src="./assets/photographers/${namephotographe}/${mediasphotographe.video}"
-      type="video/mp4"
-    ></video>
+      type="video/mp4">
+      </video>
     <p id="title">${mediasphotographe.title}</p>
     <span>${mediasphotographe.likes}</span>
     <div class="photograph_heart">
@@ -144,32 +154,37 @@ async function displaymedia() {
   mediasection.innerHTML = sectionmedia;
 
   /**
+   * incrementation des likes
+   */
+
+  /**
    * languette avec prix et likes
    */
   const animlanguette = document.querySelector(".languette");
   animlanguette.innerHTML = `<p class="languette_vue">${totalLikes}</p>
   <i class="fas fa-heart heart--empty"> </i>
   <p class="languette_prix">${prixlanguette}€ / jour</p>`;
+
+  lightbox();
 }
 
 /**
- * TRIER LES MEDIAS SELON LE TITRE, LA DATE, LA POPULARITE
+ * * Cette fonction est utilisée pour trier les médias selon l'option sélectionnée
  */
-
 async function trimedia() {
   const filtermedia = document.querySelectorAll(".selectopt");
-  console.log(filtermedia);
 
   filtermedia.forEach((Option) => {
     Option.addEventListener("click", () => {
       if (document.getElementById("opt1").checked) {
-        console.log("par dédaut checked");
+        medias.sort(function (a, b) {
+          return b.id - a.id;
+        });
       }
       if (document.getElementById("opt2").checked) {
         medias.sort(function (a, b) {
           return b.likes - a.likes;
         });
-        console.log("popularite checked");
       }
       if (document.getElementById("opt3").checked) {
         medias.sort(function (a, b) {
@@ -177,7 +192,6 @@ async function trimedia() {
             return -1;
           }
         });
-        console.log("date checked");
       }
       if (document.getElementById("opt4").checked) {
         medias.sort(function (a, b) {
@@ -185,7 +199,6 @@ async function trimedia() {
             return -1;
           }
         });
-        console.log("titre checked");
       }
       displaymedia();
     });
@@ -193,14 +206,71 @@ async function trimedia() {
 }
 
 /**
- * lightbox
+ * fonction qui crée un événement click pour chaque élément du tableau lightbox.
+ * Utilisation de la méthode indexOf pour trouver l'index de l'élément dans le tableau.
+ * Affichage de l'image dans la lightbox.
  */
-function displaylightbox() {
-  const lightboxmodal = document.getElementById("lightbox");
-  lightboxmodal.style.display = "block";
+async function lightbox() {
+  const lightbox = document.querySelectorAll(".gallerie-image");
+  lightbox.forEach((datalightbox) => {
+    datalightbox.addEventListener("click", (event) => {
+      const index = Array.from(lightbox).indexOf(event.target);
+      clicklightbox(index);
+    });
+  });
 }
 
-function closelightbox() {
+function clicklightbox(indexelement) {
+  const lightboxmodal = document.getElementById("lightbox");
+  lightboxmodal.style.display = "block";
+  index = indexelement;
+  displaylightboxelement();
+}
+
+/**
+ * La fonction affiche l'image ou la vidéo dans la lightbox
+ * Créer une variable appelée `element` et lui affecter la valeur de l'index du tableau `medias`.
+ */
+function displaylightboxelement() {
+  const element = medias[index];
+  let lightboxcontain = "";
+  if (element.image) {
+    lightboxcontain = `
+    <img class="gallerie-image"
+      src="./assets/photographers/${namephotographe}/${element.image}"
+      alt="${element.title}"
+    />
+    <p id="title">${element.title}</p>`;
+  } else {
+    lightboxcontain = `
+    <video class="gallerie-image"
+    autoplay loop
+    src="./assets/photographers/${namephotographe}/${element.video}"
+    type="video/mp4">
+    </video>
+  <p id="title">${element.title}</p>`;
+  }
+  document.querySelector("#lightbox_contain").innerHTML = lightboxcontain;
+}
+
+/* fermeture de la lightbox lorsque l'utilisateur cliquera sur le bouton de fermeture. */
+document.querySelector(".lightbox__close").addEventListener("click", () => {
   const lightboxmodal = document.getElementById("lightbox");
   lightboxmodal.style.display = "none";
-}
+});
+
+/**
+ * elément avec fonction pour passer a l'image suivante
+ */
+document.querySelector(".lightbox__next").addEventListener("click", () => {
+  index = index + 1;
+  displaylightboxelement();
+});
+
+/**
+ * elément avec fonction pour passer a l'image précédente
+ */
+document.querySelector(".lightbox__prev").addEventListener("click", () => {
+  index = index - 1;
+  displaylightboxelement();
+});
