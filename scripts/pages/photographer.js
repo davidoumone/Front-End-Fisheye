@@ -65,13 +65,13 @@ async function getmedias() {
  */
 async function displayphotographcard(photographe) {
   const photographheader = document.querySelector(".photograph-header");
-  photographheader.innerHTML = ` <h2>${photographe.name}</h2>
+  photographheader.innerHTML = ` <h2 tabindex="0">${photographe.name}</h2>
   <p>${photographe.city}, ${photographe.country}</p>
   <span>${photographe.tagline}</span>
   <button class="contact_button" onclick="displayModal()">
     Contactez-moi
   </button>
-  <img
+  <img tabindex="0"
     class="photographer1"
     src="assets/photographers/Photographers ID Photos/${photographe.portrait}"
     alt="${photographe.name}"
@@ -121,29 +121,29 @@ async function displaymedia() {
     let mediacontain;
     if (mediasphotographe.image) {
       mediacontain = ` <article>
-      <img class="gallerie-image"
+      <img tabindex="0" class="gallerie-image"
         src="./assets/photographers/${namephotographe}/${mediasphotographe.image}"
         alt="${mediasphotographe.title}"
       />
       <p id="title">${mediasphotographe.title}</p>
-      <span>${mediasphotographe.likes}</span>
+      <span class="numberLikes">${mediasphotographe.likes}</span>
       <div class="photograph_heart">
         <i class="far fa-heart heart--empty"> </i>
-        <i class="fas fa-heart heart--empty"></i>
+        <i class="fas fa-heart heart--empty likeselect"></i>
       </div>
     </article>`;
     } else {
       mediacontain = ` <article>
-      <video class="gallerie-image"
+      <video tabindex="0" class="gallerie-image"
       autoplay loop
       src="./assets/photographers/${namephotographe}/${mediasphotographe.video}"
       type="video/mp4">
       </video>
     <p id="title">${mediasphotographe.title}</p>
-    <span>${mediasphotographe.likes}</span>
+    <span class="numberLikes">${mediasphotographe.likes}</span>
     <div class="photograph_heart">
       <i class="far fa-heart heart--empty"> </i>
-      <i class="fas fa-heart heart--empty"></i>
+      <i class="fas fa-heart heart--empty likeselect"></i>
     </div>
   </article>`;
     }
@@ -154,10 +154,6 @@ async function displaymedia() {
   mediasection.innerHTML = sectionmedia;
 
   /**
-   * incrementation des likes
-   */
-
-  /**
    * languette avec prix et likes
    */
   const animlanguette = document.querySelector(".languette");
@@ -166,6 +162,43 @@ async function displaymedia() {
   <p class="languette_prix">${prixlanguette}€ / jour</p>`;
 
   lightbox();
+  clicklikes();
+}
+
+/**
+ * 1. recuperer l'index du media sur lequel on a cliqué sur le coeur
+ * 2. je cherche le media dans le tableau des medias
+ * 3. j'incrémente le like
+ * 4. j'affiche les medias
+ */
+
+/**
+ * clic = recuperation de l'element + traitement de l'action+ affichage
+ */
+
+/**
+ *  ajoute un écouteur d'événement à chaque bouton "J'aime".
+ */
+async function clicklikes() {
+  const likes = document.querySelectorAll(".likeselect");
+  likes.forEach((increment) => {
+    increment.addEventListener("click", (event) => {
+      const indexlike = Array.from(likes).indexOf(event.target);
+      recuplike(indexlike);
+    });
+  });
+}
+
+/**
+ *  incrémente les goûts d'un média spécifique de 1.
+ * @param likeelement - L'élément qui contient le bouton J'aime.
+ */
+function recuplike(likeelement) {
+  index = likeelement;
+  const incrementlike = medias[index];
+  ++incrementlike.likes;
+  ++totalLikes;
+  displaymedia();
 }
 
 /**
@@ -208,7 +241,6 @@ async function trimedia() {
 /**
  * fonction qui crée un événement click pour chaque élément du tableau lightbox.
  * Utilisation de la méthode indexOf pour trouver l'index de l'élément dans le tableau.
- * Affichage de l'image dans la lightbox.
  */
 async function lightbox() {
   const lightbox = document.querySelectorAll(".gallerie-image");
@@ -220,6 +252,10 @@ async function lightbox() {
   });
 }
 
+/**
+ * Cliquez sur l'image pour ouvrir la lightbox
+ * @param indexelement - l'index de l'élément que vous souhaitez afficher dans la lightbox.
+ */
 function clicklightbox(indexelement) {
   const lightboxmodal = document.getElementById("lightbox");
   lightboxmodal.style.display = "block";
@@ -253,24 +289,77 @@ function displaylightboxelement() {
   document.querySelector("#lightbox_contain").innerHTML = lightboxcontain;
 }
 
-/* fermeture de la lightbox lorsque l'utilisateur cliquera sur le bouton de fermeture. */
+/**
+ * Ajout d'un écouteur d'événement à l'élément avec la classe `lightbox__close`
+ * et lorsque l'élément est cliqué, il appellera la fonction `closelightox()`.
+ */
 document.querySelector(".lightbox__close").addEventListener("click", () => {
-  const lightboxmodal = document.getElementById("lightbox");
-  lightboxmodal.style.display = "none";
+  closelightox();
 });
 
 /**
- * elément avec fonction pour passer a l'image suivante
+ * Ajout d'un écouteur d'événement à l'élément avec la classe `lightbox__next`
+ * et lorsque l'élément est cliqué, il appellera la fonction `deplacementdroite()`.
  */
 document.querySelector(".lightbox__next").addEventListener("click", () => {
-  index = index + 1;
-  displaylightboxelement();
+  deplacementdroite();
 });
 
 /**
- * elément avec fonction pour passer a l'image précédente
+ * Ajout d'un écouteur d'événement à l'élément avec la classe `lightbox__prev`
+ * et lorsque l'élément est cliqué, il appellera la fonction `deplacementgauche()`.
  */
 document.querySelector(".lightbox__prev").addEventListener("click", () => {
-  index = index - 1;
+  deplacementgauche();
+});
+
+/**
+ * Si l'index est égal à la longueur du tableau, définissez l'index sur 0, sinon, incrémentez l'index de 1.
+ */
+function deplacementdroite() {
+  index = index + 1;
+  if (index == medias.length) {
+    index = 0;
+  }
   displaylightboxelement();
+}
+
+/**
+ * Si l'index est inférieur à zéro, définissez l'index sur le dernier élément du tableau.
+ */
+function deplacementgauche() {
+  index = index - 1;
+  if (index == -1) {
+    index = medias.length - 1;
+  }
+  displaylightboxelement();
+}
+
+/**
+ * Lorsque l'utilisateur clique sur le bouton de fermeture, la lightbox sera masquée.
+ */
+function closelightox() {
+  const lightboxmodal = document.getElementById("lightbox");
+  lightboxmodal.style.display = "none";
+}
+
+/**
+ * touches clavier
+ */
+
+document.addEventListener("keydown", function (e) {
+  if (e.key == "Enter") {
+    clicklightbox();
+  }
+  if (e.key == "ArrowLeft") {
+    deplacementgauche();
+  }
+
+  if (e.key == "ArrowRight") {
+    deplacementdroite();
+  }
+
+  if (e.key == "Escape") {
+    closelightox();
+  }
 });

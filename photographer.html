@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -20,8 +20,8 @@
   </head>
   <body>
     <header>
-      <a href="index.html"
-        ><img src="./assets/images/logo.png" class="logo"
+      <a tabindex="0" aria-label="retour a la page d'accueil" href="index.html"
+        ><img src="./assets/images/logo.png" class="logo" alt="logo"
       /></a>
     </header>
     <main id="main">
@@ -40,7 +40,7 @@
       </div>
       <section class="photograph-filter">
         <label>Trier par</label>
-        <div class="select" tabindex="1">
+        <div class="select" tabindex="-1">
           <input class="selectopt" name="test" type="radio" id="opt1" checked />
           <label for="opt1" class="option">Par défaut</label>
           <input class="selectopt" name="test" type="radio" id="opt2" />
@@ -55,7 +55,7 @@
       <section class="photograph-photos"></section>
 
       <div id="lightbox">
-        <button class="lightbox__close">
+        <button class="lightbox__close" aria-label="fermer">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -72,7 +72,7 @@
             ></path>
           </svg>
         </button>
-        <button class="lightbox__next">
+        <button class="lightbox__next" aria-label="image suivante">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -89,7 +89,7 @@
             ></path>
           </svg>
         </button>
-        <button class="lightbox__prev">
+        <button class="lightbox__prev" aria-label="image précédente">
           <svg
             aria-hidden="true"
             focusable="false"
@@ -106,9 +106,7 @@
             ></path>
           </svg>
         </button>
-        <div class="lightbox__container" id="lightbox_contain">
-          
-        </div>
+        <div class="lightbox__container" id="lightbox_contain"></div>
       </div>
     </main>
     <div id="contact_modal">

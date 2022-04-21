@@ -26,7 +26,7 @@ async function displayData(photographers) {
   let html = "";
   photographers.forEach((photographer) => {
     const htmlSegment = `<article class="photographer_card">
-    <a href="photographer.html?${photographer.id}">
+    <a aria-label="accès a la page photographe" href="photographer.html?${photographer.id}">
       <img
         src="assets/photographers/Photographers ID Photos/${photographer.portrait}"
         alt="${photographer.portrait}"
