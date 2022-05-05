@@ -11,8 +11,11 @@ async function getmedias() {
    * les données récupérées dans le json
    */
   try {
-   // let response = await fetch("../../data/photographers.json");
-   let response = await fetch("https://github.com/davidoumone/Front-End-Fisheye/blob/main/data/photographers.json", {mode: 'no-cors'});
+    let response = await fetch("../../data/photographers.json");
+    // let response = await fetch(
+    //   "https://github.com/davidoumone/Front-End-Fisheye/blob/main/data/photographers.json",
+    //   { mode: "no-cors" }
+    // );
     if (response.ok) {
       /**
        * si le statut HTTP est 200-299
@@ -66,7 +69,7 @@ photographcard();
  */
 async function displayphotographcard(photographe) {
   let headerPhotographe = "";
-  const photographe = new CardPhotographe(
+  const photograph = new CardPhotographe(
     photographe.name,
     photographe.id,
     photographe.city,
@@ -76,7 +79,7 @@ async function displayphotographcard(photographe) {
     photographe.portrait
   );
 
-  headerPhotographe = photographe.mediaDisplay();
+  headerPhotographe = photograph.mediaDisplay();
   const photographheader = document.querySelector(".photograph-header");
   photographheader.innerHTML = headerPhotographe;
   // photographheader.innerHTML = ` <h2 tabindex="0">${photographe.name}</h2>
