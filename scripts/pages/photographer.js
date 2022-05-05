@@ -5,41 +5,14 @@ let totalLikes;
 var medias = [];
 let filterdefault;
 let index;
-/**
- * photographer-media
- */
-
-async function photographcard() {
-  /**
-   * recupération du paramètre url (id)
-   */
-  let idproduct = window.location.search.split("?").join("");
-  /**
-   * Récupère l'identite des photographes grace a la méthode fetch et filtrer grace a la méthode find avec id comme parametre
-   */
-  const { photographers } = await getmedias();
-  const photographe = photographers.find(
-    (resultphotographe) => resultphotographe.id == idproduct
-  );
-  displayphotographcard(photographe);
-  /**
-   * variable utilisé pour le chemin du media
-   */
-  namephotographe = photographe.name;
-  /**
-   * variable utilisé pour récupérer le prix du photographe affiché sur la languette;
-   */
-  prixlanguette = photographe.price;
-}
-
-photographcard();
 
 async function getmedias() {
   /**
    * les données récupérées dans le json
    */
   try {
-    let response = await fetch("../../data/photographers.json");
+   // let response = await fetch("../../data/photographers.json");
+   let response = await fetch("https://github.com/davidoumone/Front-End-Fisheye/blob/main/data/photographers.json");
     if (response.ok) {
       /**
        * si le statut HTTP est 200-299
@@ -58,24 +31,65 @@ async function getmedias() {
     console.log(error);
   }
 }
+/**
+ * photographer-media
+ */
+
+async function photographcard() {
+  /**
+   * recupération du paramètre url (id)
+   */
+  let idphotographe = window.location.search.split("?").join("");
+  /**
+   * Récupère l'identite des photographes grace a la méthode fetch et filtrer grace a la méthode find avec id comme parametre
+   */
+  const { photographers } = await getmedias();
+  const photographe = photographers.find(
+    (resultphotographe) => resultphotographe.id == idphotographe
+  );
+  displayphotographcard(photographe);
+  /**
+   * variable utilisé pour le chemin du media
+   */
+  namephotographe = photographe.name;
+  /**
+   * variable utilisé pour récupérer le prix du photographe affiché sur la languette;
+   */
+  prixlanguette = photographe.price;
+}
+
+photographcard();
 
 /**
  * Cette fonction affiche les informations d'un photographe dans le DOM
  * @param photographe - L'objet contenant les informations du photographe.
  */
 async function displayphotographcard(photographe) {
+  let headerPhotographe = "";
+  const photographe = new CardPhotographe(
+    photographe.name,
+    photographe.id,
+    photographe.city,
+    photographe.country,
+    photographe.tagline,
+    photographe.price,
+    photographe.portrait
+  );
+
+  headerPhotographe = photographe.mediaDisplay();
   const photographheader = document.querySelector(".photograph-header");
-  photographheader.innerHTML = ` <h2 tabindex="0">${photographe.name}</h2>
-  <p>${photographe.city}, ${photographe.country}</p>
-  <span>${photographe.tagline}</span>
-  <button class="contact_button" onclick="displayModal()">
-    Contactez-moi
-  </button>
-  <img tabindex="0"
-    class="photographer1"
-    src="assets/photographers/Photographers ID Photos/${photographe.portrait}"
-    alt="${photographe.name}"
-  />`;
+  photographheader.innerHTML = headerPhotographe;
+  // photographheader.innerHTML = ` <h2 tabindex="0">${photographe.name}</h2>
+  // <p>${photographe.city}, ${photographe.country}</p>
+  // <span>${photographe.tagline}</span>
+  // <button class="contact_button" onclick="displayModal()">
+  //   Contactez-moi
+  // </button>
+  // <img tabindex="0"
+  //   class="photographer1"
+  //   src="assets/photographers/Photographers ID Photos/${photographe.portrait}"
+  //   alt="${photographe.name}"
+  // />`;
 }
 
 /**
@@ -85,13 +99,13 @@ async function initmedia() {
   /**
    * recupération du paramètre url (id)
    */
-  let idproduct = window.location.search.split("?").join("");
+  let idphotographe = window.location.search.split("?").join("");
   /**
    * Récupère les medias des photographes grace a la méthode fetch et filtrer grace a la méthode filter avec id comme parametre
    */
   const { media } = await getmedias();
   medias = media.filter(
-    (resultmedia) => resultmedia.photographerId == idproduct
+    (resultmedia) => resultmedia.photographerId == idphotographe
   );
 
   filterdefault = medias.sort(function (a, b) {
@@ -118,36 +132,41 @@ initmedia();
 async function displaymedia() {
   let sectionmedia = "";
   medias.forEach((mediasphotographe) => {
-    let mediacontain;
-    if (mediasphotographe.image) {
-      mediacontain = ` <article>
-      <img tabindex="0" class="gallerie-image"
-        src="./assets/photographers/${namephotographe}/${mediasphotographe.image}"
-        alt="${mediasphotographe.title}"
-      />
-      <p id="title">${mediasphotographe.title}</p>
-      <span class="numberLikes">${mediasphotographe.likes}</span>
-      <div class="photograph_heart">
-        <i class="far fa-heart heart--empty"> </i>
-        <i class="fas fa-heart heart--empty likeselect"></i>
-      </div>
-    </article>`;
-    } else {
-      mediacontain = ` <article>
-      <video tabindex="0" class="gallerie-image"
-      autoplay loop
-      src="./assets/photographers/${namephotographe}/${mediasphotographe.video}"
-      type="video/mp4">
-      </video>
-    <p id="title">${mediasphotographe.title}</p>
-    <span class="numberLikes">${mediasphotographe.likes}</span>
-    <div class="photograph_heart">
-      <i class="far fa-heart heart--empty"> </i>
-      <i class="fas fa-heart heart--empty likeselect"></i>
-    </div>
-  </article>`;
-    }
-    sectionmedia += mediacontain;
+    const media = new Mediafactories(mediasphotographe, namephotographe);
+    // // if (mediasphotographe.image) {
+    //   //   mediacontain = ` <article>
+    //   //   <img tabindex="0" class="gallerie-image"
+    //   //     src="./assets/photographers/${namephotographe}/${mediasphotographe.image}"
+    //   //     alt="${mediasphotographe.title}"
+    //   //   />
+    //   //   <p id="title">${mediasphotographe.title}</p>
+    //   //   <span class="numberLikes">${mediasphotographe.likes}</span>
+    //   //   <div class="photograph_heart">
+    //   //     <i class="far fa-heart heart--empty"> </i>
+    //   //     <i class="fas fa-heart heart--empty likeselect"></i>
+    //   //   </div>
+    //   // </article>`;
+    //   const media = new Image(mediasphotographe.image, mediasphotographe.title, mediasphotographe.likes, mediasphotographe.id, mediasphotographe.photographerId, mediasphotographe.date, mediasphotographe.price, namephotographe);
+    //   mediacontain = media.display();
+    // // } else {
+    //   //     mediacontain = ` <article>
+    //   //     <video tabindex="0" class="gallerie-image"
+    //   //     autoplay loop
+    //   //     src="./assets/photographers/${namephotographe}/${mediasphotographe.video}"
+    //   //     type="video/mp4">
+    //   //     </video>
+    //   //   <p id="title">${mediasphotographe.title}</p>
+    //   //   <span class="numberLikes">${mediasphotographe.likes}</span>
+    //   //   <div class="photograph_heart">
+    //   //     <i class="far fa-heart heart--empty"> </i>
+    //   //     <i class="fas fa-heart heart--empty likeselect"></i>
+    //   //   </div>
+    //   // </article>`;
+    //   const media = new Video();
+    //   mediacontain = media.display();
+    // }
+
+    sectionmedia += media.display();
   });
 
   const mediasection = document.querySelector(".photograph-photos");
@@ -164,17 +183,6 @@ async function displaymedia() {
   lightbox();
   clicklikes();
 }
-
-/**
- * 1. recuperer l'index du media sur lequel on a cliqué sur le coeur
- * 2. je cherche le media dans le tableau des medias
- * 3. j'incrémente le like
- * 4. j'affiche les medias
- */
-
-/**
- * clic = recuperation de l'element + traitement de l'action+ affichage
- */
 
 /**
  *  ajoute un écouteur d'événement à chaque bouton "J'aime".
