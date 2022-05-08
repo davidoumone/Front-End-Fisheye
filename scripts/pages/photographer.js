@@ -64,9 +64,11 @@ async function photographcard() {
 photographcard();
 
 /**
- * Cette fonction affiche les informations d'un photographe dans le DOM
- * @param photographe - L'objet contenant les informations du photographe.
+ * Il prend un objet JSON et crée un nouvel objet CardPhotographe, puis il appelle le mediaDisplay()
+ * méthode sur cet objet et affecte le résultat à la variable headerPhotographe.
+ * @param photographe - photographe récupéré avec id
  */
+
 async function displayphotographcard(photographe) {
   let headerPhotographe = "";
   const photograph = new CardPhotographe(
@@ -82,17 +84,6 @@ async function displayphotographcard(photographe) {
   headerPhotographe = photograph.mediaDisplay();
   const photographheader = document.querySelector(".photograph-header");
   photographheader.innerHTML = headerPhotographe;
-  // photographheader.innerHTML = ` <h2 tabindex="0">${photographe.name}</h2>
-  // <p>${photographe.city}, ${photographe.country}</p>
-  // <span>${photographe.tagline}</span>
-  // <button class="contact_button" onclick="displayModal()">
-  //   Contactez-moi
-  // </button>
-  // <img tabindex="0"
-  //   class="photographer1"
-  //   src="assets/photographers/Photographers ID Photos/${photographe.portrait}"
-  //   alt="${photographe.name}"
-  // />`;
 }
 
 /**
@@ -136,38 +127,6 @@ async function displaymedia() {
   let sectionmedia = "";
   medias.forEach((mediasphotographe) => {
     const media = new Mediafactories(mediasphotographe, namephotographe);
-    // // if (mediasphotographe.image) {
-    //   //   mediacontain = ` <article>
-    //   //   <img tabindex="0" class="gallerie-image"
-    //   //     src="./assets/photographers/${namephotographe}/${mediasphotographe.image}"
-    //   //     alt="${mediasphotographe.title}"
-    //   //   />
-    //   //   <p id="title">${mediasphotographe.title}</p>
-    //   //   <span class="numberLikes">${mediasphotographe.likes}</span>
-    //   //   <div class="photograph_heart">
-    //   //     <i class="far fa-heart heart--empty"> </i>
-    //   //     <i class="fas fa-heart heart--empty likeselect"></i>
-    //   //   </div>
-    //   // </article>`;
-    //   const media = new Image(mediasphotographe.image, mediasphotographe.title, mediasphotographe.likes, mediasphotographe.id, mediasphotographe.photographerId, mediasphotographe.date, mediasphotographe.price, namephotographe);
-    //   mediacontain = media.display();
-    // // } else {
-    //   //     mediacontain = ` <article>
-    //   //     <video tabindex="0" class="gallerie-image"
-    //   //     autoplay loop
-    //   //     src="./assets/photographers/${namephotographe}/${mediasphotographe.video}"
-    //   //     type="video/mp4">
-    //   //     </video>
-    //   //   <p id="title">${mediasphotographe.title}</p>
-    //   //   <span class="numberLikes">${mediasphotographe.likes}</span>
-    //   //   <div class="photograph_heart">
-    //   //     <i class="far fa-heart heart--empty"> </i>
-    //   //     <i class="fas fa-heart heart--empty likeselect"></i>
-    //   //   </div>
-    //   // </article>`;
-    //   const media = new Video();
-    //   mediacontain = media.display();
-    // }
 
     sectionmedia += media.display();
   });
@@ -359,9 +318,6 @@ function closelightox() {
  */
 
 document.addEventListener("keydown", function (e) {
-  if (e.key == "Enter") {
-    clicklightbox();
-  }
   if (e.key == "ArrowLeft") {
     deplacementgauche();
   }

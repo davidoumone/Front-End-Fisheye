@@ -31,10 +31,12 @@ async function init() {
 init();
 
 /**
- * Cette fonction prend une liste de photographes et renvoie une chaîne HTML qui affiche les données
- * pour chaque photographe
- * @param photographers - un tableau d'objets contenant les données de chaque photographe.
+ * Il prend un tableau d'objets, les parcourt en boucle,
+ * crée une nouvelle instance de la classe CardPhotographe pour chaque objet,
+ * puis ajoute le résultat de la méthode indexdisplay() à la variable html.
+ * @param photographers - est un tableau d'objets
  */
+
 async function displayData(photographers) {
   let html = "";
   photographers.forEach((photographer) => {
@@ -47,18 +49,6 @@ async function displayData(photographers) {
       photographer.price,
       photographer.portrait
     );
-    //   const htmlSegment = `<article class="photographer_card">
-    //   <a aria-label="accès a la page photographe" href="photographer.html?${photographer.id}">
-    //     <img
-    //       src="assets/photographers/Photographers ID Photos/${photographer.portrait}"
-    //       alt="${photographer.portrait}"
-    //     />
-    //     <h3>${photographer.name}</h3>
-    //   </a>
-    //   <p>${photographer.city} ${photographer.country}</p>
-    //   <span>${photographer.tagline}</span>
-    //   <span class="prix">${photographer.price}€/jour</span>
-    // </article>`;
 
     html += photo.indexdisplay();
   });
