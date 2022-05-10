@@ -1,11 +1,11 @@
 async function getPhotographers() {
   //  les données récupérées dans le json
   try {
-    let response = await fetch("../../data/photographers.json");
-    // let response = await fetch(
-    //   "https://github.com/davidoumone/Front-End-Fisheye/blob/main/data/photographers.json",
-    //   { mode: "no-cors" }
-    // );
+    // let response = await fetch("../../data/photographers.json");
+    let response = await fetch(
+      "https://github.com/davidoumone/Front-End-Fisheye/blob/main/data/photographers.json",
+      { mode: "no-cors" }
+    );
 
     if (response.ok) {
       // si le statut HTTP est 200-299
