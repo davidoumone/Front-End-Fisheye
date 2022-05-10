@@ -3,7 +3,6 @@ let namephotographe;
 let prixlanguette;
 let totalLikes;
 var medias = [];
-let filterdefault;
 let index;
 
 async function getmedias() {
@@ -71,6 +70,7 @@ photographcard();
 
 async function displayphotographcard(photographe) {
   let headerPhotographe = "";
+  // eslint-disable-next-line no-undef
   const photograph = new CardPhotographe(
     photographe.name,
     photographe.id,
@@ -102,14 +102,10 @@ async function initmedia() {
     (resultmedia) => resultmedia.photographerId == idphotographe
   );
 
-  filterdefault = medias.sort(function (a, b) {
-    return b.id - a.id;
-  });
-
   /**
    * nombre total de likes pour la languette
    */
-  initialvalue = 0;
+  let initialvalue = 0;
   totalLikes = medias.reduce((previousValue, currentValue) => {
     return previousValue + currentValue.likes;
   }, initialvalue);
@@ -126,6 +122,7 @@ initmedia();
 async function displaymedia() {
   let sectionmedia = "";
   medias.forEach((mediasphotographe) => {
+    // eslint-disable-next-line no-undef
     const media = new Mediafactories(mediasphotographe, namephotographe);
 
     sectionmedia += media.display();

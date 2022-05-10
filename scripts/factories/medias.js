@@ -107,6 +107,7 @@ class Video {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 class Mediafactories {
   /**
    * fonction utilsé dans photographer.js

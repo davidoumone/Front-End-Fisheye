@@ -1,4 +1,5 @@
-class CardPhotographe {
+ // eslint-disable-next-line no-unused-vars
+ class CardPhotographe {
   constructor(name, id, city, country, tagline, price, portrait) {
     this.name = name;
     this.id = id;

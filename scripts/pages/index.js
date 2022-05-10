@@ -40,6 +40,7 @@ init();
 async function displayData(photographers) {
   let html = "";
   photographers.forEach((photographer) => {
+    // eslint-disable-next-line no-undef
     const photo = new CardPhotographe(
       photographer.name,
       photographer.id,
