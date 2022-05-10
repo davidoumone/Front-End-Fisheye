@@ -1,12 +1,17 @@
+document.getElementById("contact_button").addEventListener("click", () => {
+  displayModal();
+});
+
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
 }
 
-function closeModal() {
+document.getElementById("form_close").addEventListener("click", () => {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
-}
+});
+
 
 // validation du formulaire
 function validate() {
@@ -125,4 +130,5 @@ const validMessage = function (Message) {
 // form submit
 form.addEventListener("submit", function (event) {
   event.preventDefault();
+  validate()
 });

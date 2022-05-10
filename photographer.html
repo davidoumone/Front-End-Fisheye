@@ -29,7 +29,7 @@
         <h2>Mimi Keel</h2>
         <p>London, UK</p>
         <span>Voir le beau dans le quotidien</span>
-        <button class="contact_button" onclick="displayModal()">
+        <button id="contact_button" class="contact_button">
           Contactez-moi
         </button>
         <img
@@ -39,8 +39,8 @@
         />
       </div>
       <section class="photograph-filter">
-        <label>Trier par</label>
-        <div class="select" tabindex="-1">
+        <label tabindex="0">Trier par</label>
+        <div class="select" tabindex="0">
           <input class="selectopt" name="test" type="radio" id="opt1" checked />
           <label for="opt1" class="option">Par défaut</label>
           <input class="selectopt" name="test" type="radio" id="opt2" />
@@ -113,14 +113,13 @@
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="./assets/icons/close.svg" onclick="closeModal()" />
+          <img id="form_close" src="./assets/icons/close.svg" />
         </header>
         <form
           id="Messenger"
           name="Messenger"
           action="photographer.html"
           method="get"
-          onsubmit="validate();"
         >
           <div>
             <label for="first">Prénom</label>
@@ -142,6 +141,7 @@
               name="last"
               required="required"
             />
+
             <span class="error"></span>
           </div>
           <div>
@@ -173,5 +173,7 @@
     </div>
     <script src="./scripts/utils/contactForm.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
+    <script src="./scripts/factories/photographer.js"></script>
+    <script src="./scripts/factories/medias.js"></script>
   </body>
 </html>
