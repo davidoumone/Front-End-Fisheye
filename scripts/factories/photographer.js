@@ -18,7 +18,7 @@
     const htmlSegment = `<article class="photographer_card">
     <a aria-label="accès a la page photographe" href="photographer.html?${this.id}">
       <img
-        src="assets/photographers/Photographers ID Photos/${this.portrait}"
+        src="assets/photographers/Photographers-ID-Photos/${this.portrait}"
         alt="${this.portrait}"
       />
       <h3>${this.name}</h3>
@@ -43,7 +43,7 @@
     </button>
     <img tabindex="0"
       class="photographer1"
-      src="assets/photographers/Photographers ID Photos/${this.portrait}"
+      src="assets/photographers/Photographers-ID-Photos/${this.portrait}"
       alt="${this.name}"
     />`;
     return photographeDisplay;

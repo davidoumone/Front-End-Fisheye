@@ -2,7 +2,4 @@
 
 ## Démarrer le projet
 
-Rien à installer ici, il suffit d'ouvrir le lien çi dessous.
-
-
-https://davidoumone.github.io/Front-End-Fisheye/
+Rien à installer a part les nodes modules pour eslint
