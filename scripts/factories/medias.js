@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-redeclare
 class Image {
   /**
    * C'est une fonction constructeur qui prend 8 paramètres et les affecte aux propriétés de
