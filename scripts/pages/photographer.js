@@ -136,7 +136,7 @@ async function displaymedia() {
    */
   const animlanguette = document.querySelector(".languette");
   animlanguette.innerHTML = `<p class="languette_vue">${totalLikes}</p>
-  <i class="fas fa-heart heart--empty"> </i>
+  <span class="fas fa-heart heart--empty"> </span>
   <p class="languette_prix">${prixlanguette}€ / jour</p>`;
 
   lightbox();

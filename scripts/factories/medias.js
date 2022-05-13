@@ -36,16 +36,16 @@ class Image {
    * @returns la variable mediacontain.
    */
   display() {
-    const mediacontain = ` <article>
+    const mediacontain = ` <article class="medias_card">
       <img tabindex="0" class="gallerie-image"
         src="./assets/photographers/${this.namephotographe}/${this.image}"
         alt="${this.title}"
       />
-      <p id="title">${this.title}</p>
+      <p class="title">${this.title}</p>
       <span class="numberLikes">${this.likes}</span>
       <div class="photograph_heart">
-        <i class="far fa-heart heart--empty"> </i>
-        <i class="fas fa-heart heart--empty likeselect"></i>
+        <span class="far fa-heart heart--empty"> </span>
+        <span class="fas fa-heart heart--empty likeselect"></span>
       </div>
     </article>`;
     return mediacontain;
@@ -90,17 +90,17 @@ class Video {
    * @returns la variable mediacontain.
    */
   display() {
-    const mediacontain = ` <article>
+    const mediacontain = ` <article class="medias_card">
       <video tabindex="0" class="gallerie-image"
       autoplay loop
       src="./assets/photographers/${this.namephotographe}/${this.video}"
-      type="video/mp4">
+      >
       </video>
-    <p id="title">${this.title}</p>
+    <p class="title">${this.title}</p>
     <span class="numberLikes">${this.likes}</span>
     <div class="photograph_heart">
-      <i class="far fa-heart heart--empty"> </i>
-      <i class="fas fa-heart heart--empty likeselect"></i>
+      <span class="far fa-heart heart--empty"> </span>
+      <span class="fas fa-heart heart--empty likeselect"></span>
     </div>
   </article>`;
     return mediacontain;
